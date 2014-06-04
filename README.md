@@ -46,14 +46,14 @@ So, after you run both queries, you should have 2 output files:
 
 users.csv should have the following format:
 
-#lower_user_name,display_name,first_name,last_name,email_address,credential
+lower_user_name,display_name,first_name,last_name,email_address,credential
 ckent,Clark Kent,Clark,Kent,clarkkent@acme.company,{PKCS5S2}abcdefghijklmnopqrstuvwxyz
 pparker,Peter Parker,Peter,Parker,peterparker@acme.company,{PKCS5S2}abcdefghijklmnopqrstuvwxyz
 bwayne,Bruce Wayne,Bruce,Wayne,brucewayne@acme.company,{PKCS5S2}abcdefghijklmnopqrstuvwxyz
 
 groups.csv should have the following format:
 
-#lower_parent_name,lower_user_name
+lower_parent_name,lower_user_name
 jira-administrators,ckent
 jira-developer,pparker
 jira-developer,bwayne
