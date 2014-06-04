@@ -46,11 +46,10 @@ ou: groups
 ldif.write(heading)
 
 
-"""Print each user dn"""
+"""Got to do some error checking"""
 with open(i_user, 'r') as csvfile:
     users = csv.reader(csvfile, delimiter=',')
 
-    """Got to do some error checking"""
     miss = []
     i = 1
     for row in users:
@@ -62,7 +61,10 @@ with open(i_user, 'r') as csvfile:
     if len(miss) != 0:
         ldif.write("\n\n# !!!WARNING: Check the followings lines at "+i_user+", you may get error at loading to LDAP.")
         ldif.write("\n# "+ str(miss))
-    
+
+"""Print each user dn"""
+with open(i_user, 'r') as csvfile:
+    users = csv.reader(csvfile, delimiter=',')
     """Ready to do work"""
     for row in users:
         person = "\n\ndn: cn="+row[0].lstrip().rstrip()+","+PEOPLE_DN+"\nobjectClass: top\nobjectClass: person\nobjectClass: organizationPerson\nobjectclass: inetOrgPerson\ncn: "+row[0].lstrip().rstrip()+"\ndisplayname: "+row[1].lstrip().rstrip()+"\ngivenname: "+row[2].lstrip().rstrip()+"\nsn: "+row[3].lstrip().rstrip()+"\nuid: "+row[0].lstrip().rstrip()+"\nmail: "+row[4].lstrip().rstrip()+"\nuserpassword: "+row[5].lstrip().rstrip()
