@@ -1,6 +1,6 @@
 copy (
 SELECT DISTINCT m.lower_parent_name,
-						u.lower_user_name
+		u.lower_user_name
 FROM   cwd_user u
        JOIN cwd_membership m
          ON u.id = m.child_id
