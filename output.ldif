@@ -1,0 +1,75 @@
+### Headings ###
+
+dn: ou=people,o=acme
+objectClass: organizationalUnit
+objectClass: top
+description: Contain entries which describe persons
+ou: people
+
+dn: ou=groups,o=acme
+objectClass: organizationalUnit
+objectClass: top
+description: Contains entries which describe groups
+ou: groups
+
+### People ###
+
+
+# !!!WARNING: Check the followings lines at users.csv, you may get error at loading to LDAP.
+# [2]
+
+dn: cn=ckent,ou=people,o=acme
+objectClass: top
+objectClass: person
+objectClass: organizationPerson
+objectclass: inetOrgPerson
+cn: ckent
+displayname: Clark Kent
+givenname: Clark
+sn: Kent
+uid: ckent
+mail: clarkkent@acme.company
+userpassword: {PKCS5S2}abcdefghijklmnopqrstuvwxyz
+
+dn: cn=pparker,ou=people,o=acme
+objectClass: top
+objectClass: person
+objectClass: organizationPerson
+objectclass: inetOrgPerson
+cn: pparker
+displayname: Peter Parker
+givenname: 
+sn: Parker
+uid: pparker
+mail: peterparker@acme.company
+userpassword: {PKCS5S2}abcdefghijklmnopqrstuvwxyz
+
+dn: cn=bwayne,ou=people,o=acme
+objectClass: top
+objectClass: person
+objectClass: organizationPerson
+objectclass: inetOrgPerson
+cn: bwayne
+displayname: Bruce Wayne
+givenname: Bruce
+sn: Wayne
+uid: bwayne
+mail: brucewayne@acme.company
+userpassword: {PKCS5S2}abcdefghijklmnopqrstuvwxyz
+
+### Groups ###
+
+dn: cn=jira-administrators,ou=groups,o=acme
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: jira-administrators
+uniquemember: cn=ckent,ou=people,o=acme
+
+dn: cn=jira-developer,ou=groups,o=acme
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: jira-developer
+uniquemember: cn=pparker,ou=people,o=acme
+uniquemember: cn=bwayne,ou=people,o=acme
+
+### End of output.ldif ###
